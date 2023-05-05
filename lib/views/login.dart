@@ -99,7 +99,7 @@ class _LoginState extends State<Login> {
                     style: TextStyle(
                         fontSize: 16,
                         color: Colors.white,
-                        fontFamily: 'futura-bold'
+                        fontFamily: 'futura-medium'
                     ),
                   ),
                 ),
@@ -146,7 +146,7 @@ class _LoginState extends State<Login> {
                     style: TextStyle(
                         fontSize: 16,
                         color: Colors.white,
-                        fontFamily: 'futura-bold'
+                        fontFamily: 'futura-medium'
                     ),
                   ),
                 ),
@@ -169,7 +169,7 @@ class _LoginState extends State<Login> {
                     style: TextStyle(
                         fontSize: 16,
                         color: Colors.white,
-                        fontFamily: 'futura-bold'
+                        fontFamily: 'futura-medium'
                     ),
                   ),
                 ),

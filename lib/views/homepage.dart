@@ -18,9 +18,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: HexColor("#F2F2F2"),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: HexColor("#F2F2F2"),
         elevation: 0,
         automaticallyImplyLeading: false,
         leading: GestureDetector(
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Current location", style: TextStyle(
+            const Text("Current location", style: TextStyle(
               color: Colors.black38,
               fontSize: 10,
               fontFamily: 'futura-regular',
@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   height: 20,
                   alignment: Alignment.center,
-                  child: Text("Amman", style: TextStyle(
+                  child: const Text("Amman", style: TextStyle(
                     color: Colors.black,
                     fontFamily: 'futura-bold',
                     fontSize: 10
@@ -62,27 +62,27 @@ class _HomePageState extends State<HomePage> {
         slivers: [
           SliverList(delegate: SliverChildListDelegate([
             Container(
-              color: Colors.white,
               width: MediaQuery.of(context).size.width,
               margin: const EdgeInsets.only(left: 25, right: 25, top: 10, bottom: 10),
               alignment: Alignment.center,
               height: 35,
               child: TextFormField(
                 textAlignVertical: TextAlignVertical.bottom,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintText: "Search for a babysitter",
-                    hintStyle: const TextStyle(
+                    hintStyle: TextStyle(
                         color: Colors.grey,
                         fontFamily: 'futura-medium',
                         fontSize: 16
                     ),
-                    prefixIcon: const Icon(Icons.search, color: Colors.blue,),
+                    prefixIcon: Icon(Icons.search, color: Colors.blue,),
+                    filled: true,
+                    fillColor: Colors.white,
                     border: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        color: Colors.black,
-                      ),
-                      borderRadius: BorderRadius.circular(7),
-                    )
+                      // width: 0.0 produces a thin "hairline" border
+                      borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                      borderSide: BorderSide.none,
+                    ),
                 ),
               ),
             ),
@@ -97,9 +97,9 @@ class _HomePageState extends State<HomePage> {
                     fontSize: 16,
                     fontFamily: 'futura-bold',
                   ),),
-                  Text("See all", style: TextStyle(
+                  const Text("See all", style: TextStyle(
                     color: Colors.blue,
-                    fontFamily: 'futura-regular',
+                    fontFamily: 'futura-bold',
                     fontSize: 10,
                   ),),
                 ],
@@ -147,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                     itemCount: 7,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return FilterAdapter();
+                      return const FilterAdapter();
                     }),
               ),
             ]

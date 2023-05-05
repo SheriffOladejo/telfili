@@ -484,7 +484,7 @@ class _SignUpState extends State<SignUp> {
                     style: TextStyle(
                         fontSize: 16,
                         color: Colors.white,
-                        fontFamily: 'futura-bold'
+                        fontFamily: 'futura-medium'
                     ),
                   ),
                 ),
