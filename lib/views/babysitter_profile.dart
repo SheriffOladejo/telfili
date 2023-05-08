@@ -3,6 +3,7 @@ import 'package:telfili/models/babysitter.dart';
 import 'package:telfili/utils/hex_color.dart';
 import 'package:telfili/utils/methods.dart';
 import 'package:readmore/readmore.dart';
+import 'package:telfili/views/make_appointment.dart';
 
 class BabySitterProfile extends StatefulWidget {
 
@@ -226,8 +227,8 @@ class _BabySitterProfileState extends State<BabySitterProfile> {
         alignment: Alignment.center,
         width: MediaQuery.of(context).size.width,
         height: 72,
-        decoration: const BoxDecoration(
-          color: Colors.white,
+        decoration: BoxDecoration(
+          color: HexColor("#F0F0F0"),
           borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
         ),
         child: Container(
@@ -236,7 +237,7 @@ class _BabySitterProfileState extends State<BabySitterProfile> {
           height: 50,
           child: MaterialButton(
             onPressed: () {
-              //Navigator.push(context, slideLeft(const MakeAppointment()));
+              Navigator.push(context, slideLeft(const MakeAppointment()));
             },
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),

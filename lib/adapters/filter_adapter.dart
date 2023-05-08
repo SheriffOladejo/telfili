@@ -20,7 +20,7 @@ class FilterAdapter extends StatelessWidget {
             children: [
               Container(width: 3,),
               Image.asset("assets/images/mother_child.png", width: 20, height: 20,),
-              Text("Certified babysitter", style: TextStyle(color: Colors.black38, fontSize: 8),),
+              Text("Certified babysitter", style: TextStyle(color: Colors.black38, fontSize: 8, fontFamily: 'futura-regular'),),
               Container(width: 3,),
             ],
           ),
