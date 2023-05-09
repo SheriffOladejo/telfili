@@ -79,7 +79,7 @@ class _TabViewState extends State<TabView> {
       PersistentBottomNavBarItem(
         iconSize: 60,
         contentPadding: 0,
-        icon: Image.asset("assets/images/baby logo.png"),
+        icon: Image.asset("assets/images/baby logo.png", width: 100, height: 100,),
         onPressed: (BuildContext context) {
 
         },
