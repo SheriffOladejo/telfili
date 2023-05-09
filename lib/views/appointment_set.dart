@@ -154,8 +154,8 @@ class _AppointmentSetState extends State<AppointmentSet> {
               height: 50,
               child: MaterialButton(
                 onPressed: () {
-                  Navigator.pushAndRemoveUntil(context, slideLeft(const HomePage()));
-                  Navigator.pushReplacement(context, slideLeft(const HomePage()));
+                  Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                      const HomePage()), (Route<dynamic> route) => false);
                 },
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10)),

@@ -155,7 +155,7 @@ class _HomePageState extends State<HomePage> {
           SliverList(delegate: SliverChildListDelegate([
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 300,
+              height: 260,
               padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
               child: ListView.builder(
                   shrinkWrap: true,

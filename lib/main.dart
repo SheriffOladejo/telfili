@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:telfili/views/homepage.dart';
 import 'package:telfili/views/rules_and_regulations.dart';
 import 'package:telfili/views/splash_screen.dart';
+import 'package:telfili/views/tabview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: TabView(),
     );
   }
 }
