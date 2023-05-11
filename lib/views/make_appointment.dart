@@ -39,15 +39,6 @@ class _MakeAppointmentState extends State<MakeAppointment> {
           },
           child: Image.asset("assets/images/back button.png"),
         ),
-        actions: [
-          GestureDetector(
-            onTap: () async {
-
-            },
-            child: Image.asset("assets/images/settings box.png"),
-          ),
-          Container(width: 10,),
-        ],
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -159,6 +150,7 @@ class _MakeAppointmentState extends State<MakeAppointment> {
               child: Container(
                 margin: const EdgeInsets.all(10),
                 child: SfDateRangePicker(
+                  rangeSelectionColor: HexColor("#FFD9F0"),
                   onSelectionChanged: _onSelectionChanged,
                   selectionMode: DateRangePickerSelectionMode.range,
                   initialSelectedRange: PickerDateRange(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:telfili/models/babysitter.dart';
 import 'package:telfili/utils/hex_color.dart';
 import 'package:telfili/utils/methods.dart';
@@ -128,7 +129,7 @@ class _BabySitterProfileState extends State<BabySitterProfile> {
                   Container(
                     alignment: Alignment.topLeft,
                     height: 180,
-                    child: Image.asset("assets/images/customers.png"),
+                    child: Image.asset("assets/images/message.png"),
                   )
                 ],
               ),
@@ -210,31 +211,32 @@ class _BabySitterProfileState extends State<BabySitterProfile> {
                         fontSize: 8,
                       ),),
                       Container(height: 5,),
-                      review("Abdallah Ramez", "Super cool attitude and amazing...", "assets/images/rating stars five.png"),
+                      review("Abdallah Ramez", "Super cool attitude and amazing...", 5),
                       Container(height: 5,),
-                      review("Rand Shakhshir", "All tasks were fulfilled by her. Good...", "assets/images/rating stars five.png"),
+                      review("Rand Shakhshir", "All tasks were fulfilled by her. Good...", 4),
                       Container(height: 5,),
-                      review("Dina Al Manaseer", "Overall good, but time management...", "assets/images/rating stars five.png"),
+                      review("Dina Al Manaseer", "Overall good, but time management...", 3.5),
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
       ),
       bottomSheet: Container(
         alignment: Alignment.center,
+        padding: const EdgeInsets.only(bottom: 40, top: 20),
         width: MediaQuery.of(context).size.width,
-        height: 72,
+        height: 112,
         decoration: BoxDecoration(
           color: HexColor("#F0F0F0"),
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+          borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
         ),
         child: Container(
           alignment: Alignment.centerRight,
           width: 300,
-          height: 50,
+          height: 70,
           child: MaterialButton(
             onPressed: () {
               Navigator.push(context, slideLeft(const MakeAppointment()));
@@ -273,7 +275,7 @@ class _BabySitterProfileState extends State<BabySitterProfile> {
   Widget review(
       String name,
       String desc,
-      String stars,
+      double stars,
       ) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
@@ -317,15 +319,27 @@ class _BabySitterProfileState extends State<BabySitterProfile> {
             ),
           ),
           Container(width: 5,),
-          SizedBox(
+          Container(
+            width: 60,
             height: 25,
-            child: Column(
-              children: [
-                Container(height: 10,),
-                Image.asset(stars)
-              ],
+            alignment: Alignment.center,
+            child: RatingBar.builder(
+              initialRating: stars,
+              minRating: 1,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemCount: 5,
+              itemSize: 12,
+              itemBuilder: (context, _) => const Icon(
+                Icons.star,
+                color: Colors.amber,
+              ),
+              unratedColor: Colors.grey,
+              onRatingUpdate: (rating) {
+
+              },
             ),
-          ),
+          )
         ],
       ),
     );

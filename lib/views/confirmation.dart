@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:telfili/utils/hex_color.dart';
 import 'package:telfili/utils/methods.dart';
 import 'package:telfili/views/appointment_set.dart';
-import 'package:telfili/views/make_appointment.dart';
 
 class Confirmation extends StatefulWidget {
 
@@ -34,15 +33,6 @@ class _ConfirmationState extends State<Confirmation> {
           },
           child: Image.asset("assets/images/back button.png"),
         ),
-        actions: [
-          GestureDetector(
-            onTap: () async {
-
-            },
-            child: Image.asset("assets/images/settings box.png"),
-          ),
-          Container(width: 10,),
-        ],
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -100,8 +90,8 @@ class _ConfirmationState extends State<Confirmation> {
                 Container(
                   width: 32,
                   height: 32,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(32)),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(32)),
                     color: Colors.blue,
                   ),
                   alignment: Alignment.center,
@@ -126,7 +116,7 @@ class _ConfirmationState extends State<Confirmation> {
                     color: HexColor("#707070"),
                   ),
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     "4",
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -184,10 +174,10 @@ class _ConfirmationState extends State<Confirmation> {
                                       fontSize: 18,
                                       fontFamily: 'futura-medium',
                                     ),
-                                    children: [
+                                    children: const [
                                       TextSpan(
                                         text: "May 2023",
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           color: Colors.grey,
                                           fontSize: 10,
                                           fontFamily: 'futura-regular',
@@ -252,10 +242,10 @@ class _ConfirmationState extends State<Confirmation> {
                                       fontSize: 18,
                                       fontFamily: 'futura-medium',
                                     ),
-                                    children: [
+                                    children: const [
                                       TextSpan(
                                         text: "August 2023",
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           color: Colors.grey,
                                           fontSize: 10,
                                           fontFamily: 'futura-regular',
@@ -327,7 +317,7 @@ class _ConfirmationState extends State<Confirmation> {
                             fontFamily: 'futura-medium',
                             color: HexColor("#707070"),
                           ),),
-                          Icon(Icons.arrow_right_alt, color: Colors.grey,)
+                          const Icon(Icons.arrow_right_alt, color: Colors.grey,)
                         ],
                       ),
                       Row(
@@ -335,7 +325,7 @@ class _ConfirmationState extends State<Confirmation> {
                         children: [
                           Card(
                             color: Colors.blue,
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(Radius.circular(5)),
                             ),
                             elevation: 3,
@@ -355,7 +345,7 @@ class _ConfirmationState extends State<Confirmation> {
                           ),
                           Card(
                             color: Colors.blue,
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(Radius.circular(5)),
                             ),
                             elevation: 3,
@@ -435,7 +425,7 @@ class _ConfirmationState extends State<Confirmation> {
               height: 50,
               child: MaterialButton(
                 onPressed: () {
-                  Navigator.push(context, slideLeft(const AppointmentSet()));
+                  Navigator.pushReplacement(context, slideLeft(const AppointmentSet()));
                 },
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10)),

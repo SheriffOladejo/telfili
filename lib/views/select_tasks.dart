@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:telfili/adapters/task_adapter.dart';
+import 'package:telfili/models/task.dart';
 import 'package:telfili/utils/hex_color.dart';
 import 'package:telfili/utils/methods.dart';
-import 'package:telfili/views/make_appointment.dart';
 import 'package:telfili/views/rules_and_regulations.dart';
 
 class SelectTask extends StatefulWidget {
@@ -15,6 +15,8 @@ class SelectTask extends StatefulWidget {
 }
 
 class _SelectTaskState extends State<SelectTask> {
+
+  var taskList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -30,15 +32,6 @@ class _SelectTaskState extends State<SelectTask> {
           },
           child: Image.asset("assets/images/back button.png"),
         ),
-        actions: [
-          GestureDetector(
-            onTap: () async {
-
-            },
-            child: Image.asset("assets/images/settings box.png"),
-          ),
-          Container(width: 10,),
-        ],
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -54,8 +47,8 @@ class _SelectTaskState extends State<SelectTask> {
                 Container(
                   width: 32,
                   height: 32,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(32)),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(32)),
                     color: Colors.blue,
                   ),
                   alignment: Alignment.center,
@@ -143,7 +136,7 @@ class _SelectTaskState extends State<SelectTask> {
             ),),
             Container(height: 8,),
             Container(
-              height: MediaQuery.of(context).size.height - 300,
+              height: MediaQuery.of(context).size.height - 330,
               width: MediaQuery.of(context).size.width,
               margin: const EdgeInsets.all(10),
               child: GridView.builder(
@@ -153,9 +146,9 @@ class _SelectTaskState extends State<SelectTask> {
                     childAspectRatio: 10 / 4,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20),
-                itemCount: 15,
+                itemCount: taskList.length,
                 itemBuilder: (context, index) {
-                  return TaskAdapter();
+                  return TaskAdapter(task: taskList[index],);
                 }
               )
             ),
@@ -214,6 +207,109 @@ class _SelectTaskState extends State<SelectTask> {
         ),
       ),
     );
+  }
+
+  Future<void> init() async {
+    taskList.add(Task(
+        image: "assets/images/books.png",
+        title: "Study"
+      ));
+    taskList.add(Task(
+            image: "assets/images/bathe.png",
+            title: "Bathe"
+        ));
+    taskList.add(Task(
+            image: "assets/images/movie.png",
+            title: "Movie"
+        ));
+    taskList.add(
+        Task(
+            image: "assets/images/baby logo.png",
+            title: "Nap"
+        )
+    );
+    taskList.add(
+        Task(
+            image: "assets/images/football.png",
+            title: "Soccer"
+        )
+    );
+    taskList.add(
+        Task(
+            image: "assets/images/socks.png",
+            title: "Laundry"
+        )
+    );
+    taskList.add(
+        Task(
+            image: "assets/images/walk.png",
+            title: "Walk"
+        )
+    );
+    taskList.add(
+        Task(
+            image: "assets/images/game_pad.png",
+            title: "Play games"
+        )
+    );
+    taskList.add(
+        Task(
+            image: "assets/images/notepad.png",
+            title: "Draw"
+        )
+    );
+    taskList.add(
+        Task(
+            image: "assets/images/apple.png",
+            title: "Eat"
+        )
+    );
+    taskList.add(
+        Task(
+            image: "assets/images/music.png",
+            title: "Listen to music"
+        )
+    );
+    taskList.add(
+        Task(
+            image: "assets/images/book.png",
+            title: "Read a book"
+        )
+    );
+    taskList.add(
+        Task(
+            image: "assets/images/video call.png",
+            title: "Video call"
+        )
+    );
+    taskList.add(
+        Task(
+            image: "assets/images/cook.png",
+            title: "Cook"
+        )
+    );
+    taskList.add(
+        Task(
+            image: "assets/images/brush.png",
+            title: "Brush"
+        )
+    );
+    taskList.add(
+        Task(
+            image: "assets/images/cleannnn.png",
+            title: "Clean"
+        )
+    );
+
+    setState(() {
+
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    init();
   }
 
 }

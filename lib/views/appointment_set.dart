@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:telfili/utils/hex_color.dart';
-import 'package:telfili/utils/methods.dart';
 import 'package:telfili/views/homepage.dart';
 
 class AppointmentSet extends StatefulWidget {
@@ -22,21 +21,6 @@ class _AppointmentSetState extends State<AppointmentSet> {
         backgroundColor: HexColor("#F0F0F0"),
         elevation: 0,
         automaticallyImplyLeading: false,
-        leading: GestureDetector(
-          onTap: () async {
-            Navigator.pop(context);
-          },
-          child: Image.asset("assets/images/back button.png"),
-        ),
-        actions: [
-          GestureDetector(
-            onTap: () async {
-
-            },
-            child: Image.asset("assets/images/settings box.png"),
-          ),
-          Container(width: 10,),
-        ],
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -94,8 +78,8 @@ class _AppointmentSetState extends State<AppointmentSet> {
                 Container(
                   width: 32,
                   height: 32,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(32)),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(32)),
                     color: Colors.blue,
                   ),
                   alignment: Alignment.center,
@@ -115,12 +99,12 @@ class _AppointmentSetState extends State<AppointmentSet> {
                 Container(
                   width: 32,
                   height: 32,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(32)),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(32)),
                     color: Colors.blue,
                   ),
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     "4",
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -134,8 +118,8 @@ class _AppointmentSetState extends State<AppointmentSet> {
               ],
             ),
             const Spacer(),
-            Text("Your appointment is all set", style: TextStyle(
-              fontSize: 30,
+            Text("Your appointment \nis all set", textAlign: TextAlign.center, style: TextStyle(
+              fontSize: 40,
               fontFamily: 'futura-medium',
               color: HexColor("#707070"),
             ),),

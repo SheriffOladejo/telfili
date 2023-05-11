@@ -3,6 +3,7 @@ import 'package:telfili/utils/hex_color.dart';
 import 'package:telfili/utils/methods.dart';
 import 'package:telfili/views/homepage.dart';
 import 'package:telfili/views/sign_up.dart';
+import 'package:telfili/views/tabview.dart';
 
 class Login extends StatefulWidget {
   const Login({Key key}) : super(key: key);
@@ -84,7 +85,7 @@ class _LoginState extends State<Login> {
               Container(height: 20,),
               MaterialButton(
                 onPressed: () {
-                  Navigator.push(context, slideLeft(const HomePage()));
+                  Navigator.pushReplacement(context, slideLeft(const TabView()));
                 },
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -154,7 +155,7 @@ class _LoginState extends State<Login> {
               Container(height: 10,),
               MaterialButton(
                 onPressed: () {
-                  Navigator.push(context, slideLeft(const HomePage()));
+                  Navigator.pushReplacement(context, slideLeft(const TabView()));
                 },
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10)),

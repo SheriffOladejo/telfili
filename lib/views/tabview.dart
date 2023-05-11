@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:telfili/views/chat_messages.dart';
@@ -63,23 +64,19 @@ class _TabViewState extends State<TabView> {
   List<PersistentBottomNavBarItem> navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: const ImageIcon(
-          AssetImage("assets/images/nav_home.png"),
-        ),
+        icon: const Icon(CupertinoIcons.home, size: 20,),
         activeColorPrimary: Colors.blue,
         inactiveColorPrimary: Colors.black,
       ),
       PersistentBottomNavBarItem(
-        icon: const ImageIcon(
-          AssetImage("assets/images/nav_message.png"),
-        ),
+        icon: const Icon(CupertinoIcons.mail, size: 20,),
         activeColorPrimary: Colors.blue,
         inactiveColorPrimary: Colors.black,
       ),
       PersistentBottomNavBarItem(
         iconSize: 60,
         contentPadding: 0,
-        icon: Image.asset("assets/images/baby logo.png", width: 100, height: 100,),
+        icon: Image.asset("assets/images/baby logo.png",),
         onPressed: (BuildContext context) {
 
         },
@@ -89,16 +86,12 @@ class _TabViewState extends State<TabView> {
         inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem(
-        icon: const ImageIcon(
-          AssetImage("assets/images/nav_notification.png"),
-        ),
+        icon: const Icon(CupertinoIcons.bell, size: 20,),
         activeColorPrimary: Colors.blue,
         inactiveColorPrimary: Colors.black,
       ),
       PersistentBottomNavBarItem(
-        icon: const ImageIcon(
-          AssetImage("assets/images/nav_profile.png"),
-        ),
+        icon: const Icon(CupertinoIcons.profile_circled, size: 20,),
         activeColorPrimary: Colors.blue,
         inactiveColorPrimary: Colors.black,
       ),

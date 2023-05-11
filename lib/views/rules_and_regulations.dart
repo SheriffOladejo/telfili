@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:telfili/utils/hex_color.dart';
 import 'package:telfili/utils/methods.dart';
 import 'package:telfili/views/confirmation.dart';
-import 'package:telfili/views/make_appointment.dart';
 
 class RulesAndRegulations extends StatefulWidget {
 
@@ -27,15 +26,6 @@ class _RulesAndRegulationsState extends State<RulesAndRegulations> {
           },
           child: Image.asset("assets/images/back button.png"),
         ),
-        actions: [
-          GestureDetector(
-            onTap: () async {
-
-            },
-            child: Image.asset("assets/images/settings box.png"),
-          ),
-          Container(width: 10,),
-        ],
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,

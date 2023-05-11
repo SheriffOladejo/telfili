@@ -40,18 +40,18 @@ class _ScheduleAdapterState extends State<ScheduleAdapter> {
             children: [
               Row(
                 children: [
-                  Image.asset("assets/images/babysitter1.png"),
+                  Image.asset(widget.schedule.image),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text("Lareen Muhtaseb", style: TextStyle(
+                      Text(widget.schedule.name, style: TextStyle(
                         color: Colors.white,
                         fontSize: 14,
                         fontFamily: 'futura-medium',
                       ),),
                       Container(height: 8,),
-                      const Text("Babysitter appointment", style: TextStyle(
+                      Text(widget.schedule.type, style: TextStyle(
                         color: Colors.white,
                         fontFamily: 'futura-light',
                         fontSize: 8,

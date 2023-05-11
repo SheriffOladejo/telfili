@@ -15,23 +15,31 @@ class TaskAdapter extends StatefulWidget {
 
 class _TaskAdapterState extends State<TaskAdapter> {
 
+  bool isSelected = false;
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(0),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-        ),
-        elevation: 3,
-        child: Container(
+    return InkWell(
+      onTap: () {
+        setState(() {
+          isSelected = !isSelected;
+        });
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(0),
+        child: Card(
+          color: isSelected ? Colors.blue : Colors.white,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+          ),
+          elevation: 3,
           child: Row(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset("assets/images/books.png", width: 50, height: 45,),
+              Image.asset(widget.task.image, width: 50, height: 45,),
               Container(width: 5,),
-              Text("Study", style: TextStyle(color: HexColor("#707070"), fontSize: 14, fontFamily: 'futura-medium'),),
+              Text(widget.task.title, style: TextStyle(color: HexColor("#707070"), fontSize: 14, fontFamily: 'futura-medium'),),
               Container(width: 3,),
             ],
           ),

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:telfili/adapters/babysitter_adapter.dart';
 import 'package:telfili/adapters/filter_adapter.dart';
 import 'package:telfili/adapters/schedule_adapter.dart';
+import 'package:telfili/models/babysitter.dart';
+import 'package:telfili/models/filter.dart';
+import 'package:telfili/models/schedule.dart';
 import 'package:telfili/utils/hex_color.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,6 +17,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  var scheduleList = [];
+  var filterList = [];
+  var babysitterList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -114,10 +121,10 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
               child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: 7,
+                itemCount: scheduleList.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                return ScheduleAdapter();
+                return ScheduleAdapter(schedule: scheduleList[index],);
               }),
             ),
           ]),),
@@ -144,10 +151,10 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                 child: ListView.builder(
                     shrinkWrap: true,
-                    itemCount: 7,
+                    itemCount: filterList.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return const FilterAdapter();
+                      return FilterAdapter(filter: filterList[index],);
                     }),
               ),
             ]
@@ -155,19 +162,110 @@ class _HomePageState extends State<HomePage> {
           SliverList(delegate: SliverChildListDelegate([
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 260,
+              height: 240,
               padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
               child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: 7,
+                  itemCount: babysitterList.length,
                   itemBuilder: (context, index) {
-                    return BabySitterAdapter();
+                    return BabySitterAdapter(babySitter: babysitterList[index],);
                   }),
             ),
           ]),),
         ],
       )
     );
+  }
+
+  Future<void> init() async {
+
+    scheduleList.add(Schedule(
+      name: "Lareen Muhtaseb",
+      image: "assets/images/babysitter1.png",
+      type: "Babysitter appointment",
+    ));
+    scheduleList.add(Schedule(
+      name: "Amira Radwan",
+      image: "assets/images/babysitter2.png",
+      type: "Babysitter appointment",
+    ));
+    scheduleList.add(Schedule(
+      name: "Mohammad Al Shihabi",
+      image: "assets/images/babysitter3.png",
+      type: "Babysitter appointment",
+    ));
+    scheduleList.add(Schedule(
+      name: "Andria Hattar",
+      image: "assets/images/notif5.png",
+      type: "Babysitter appointment",
+    ));
+
+    filterList.add(Filter(
+      image: "assets/images/mother_child.png",
+      title: "Certified babysitter"
+    ));
+    filterList.add(Filter(
+        image: "assets/images/woman-teacher.png",
+        title: "Tutoring skills"
+    ));
+    filterList.add(Filter(
+        image: "assets/images/speaking-head.png",
+        title: "Native english speaker"
+    ));
+    filterList.add(Filter(
+        image: "assets/images/male cook.png",
+        title: "Native arabic speaker"
+    ));
+    filterList.add(Filter(
+        image: "assets/images/cleannnn.png",
+        title: "Cleaning skills"
+    ));
+
+    babysitterList.add(BabySitter(
+      name: "Andria Hattar",
+      occupation: "Certified babysitter",
+      image: "assets/images/babysitter1.png",
+      stars: 4,
+      reviews: "4.0 | 177 Reviews"
+    ));
+    babysitterList.add(BabySitter(
+        name: "Mohammad Al Shihabi",
+        occupation: "Experienced babysitter",
+        image: "assets/images/babysitter3.png",
+        stars: 4,
+        reviews: "5.0 | 2.465 Reviews"
+    ));
+    babysitterList.add(BabySitter(
+        name: "Amira Radwan",
+        occupation: "Children-lover and babysitter",
+        image: "assets/images/babysitter2.png",
+        stars: 5,
+        reviews: "5.0 | 521 Reviews"
+    ));
+    babysitterList.add(BabySitter(
+        name: "Samira Ismaeel",
+        occupation: "Grandmother and babysitter",
+        image: "assets/images/babysitter4.png",
+        stars: 3,
+        reviews: "3.1 |278 Reviews"
+    ));
+    babysitterList.add(BabySitter(
+        name: "Ahmad Noor",
+        occupation: "Certified babysitter",
+        image: "assets/images/babysitter5.png",
+        stars: 5,
+        reviews: "5.0 | 1.245 Reviews"
+    ));
+
+    setState(() {
+
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    init();
   }
 
 }

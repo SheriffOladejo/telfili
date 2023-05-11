@@ -3,7 +3,7 @@ class BabySitter {
   String name;
   String occupation;
   String reviews;
-  String stars;
+  double stars;
 
   BabySitter({
     this.image,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:telfili/views/homepage.dart';
-import 'package:telfili/views/rules_and_regulations.dart';
-import 'package:telfili/views/splash_screen.dart';
+import 'package:telfili/views/login.dart';
+import 'package:telfili/views/profile.dart';
 import 'package:telfili/views/tabview.dart';
 
 void main() {
