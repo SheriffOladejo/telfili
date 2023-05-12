@@ -34,7 +34,7 @@ class _ProfileState extends State<Profile> {
             fontSize: 20,
           ),),
           Container(height: 2,),
-          Text("@naserfam", style: TextStyle(
+          const Text("@naserfam", style: TextStyle(
             color: Colors.grey,
             fontFamily: 'futura-regular',
             fontSize: 12,
@@ -71,7 +71,7 @@ class _ProfileState extends State<Profile> {
             parallaxOffset: .5,
             body: body(),
             panelBuilder: (sc) => panel(sc),
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(35.0),
                 topRight: Radius.circular(35.0)),
             onPanelSlide: (double pos) => setState(() {
@@ -86,7 +86,7 @@ class _ProfileState extends State<Profile> {
         child: Container(
           height: 200,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(topRight: Radius.circular(35), topLeft: Radius.circular(35)),
             color: Colors.white,
           ),
@@ -101,7 +101,7 @@ class _ProfileState extends State<Profile> {
                 child: Container(
                   width: 80,
                   height: 5,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(3)),
                     color: Colors.grey,
                   ),
@@ -169,7 +169,7 @@ class _ProfileState extends State<Profile> {
       child: Container(
         height: 200,
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(topRight: Radius.circular(35), topLeft: Radius.circular(35)),
           color: Colors.blue,
         ),
@@ -184,7 +184,7 @@ class _ProfileState extends State<Profile> {
               child: Container(
                 width: 80,
                 height: 5,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(3)),
                   color: Colors.lightBlueAccent,
                 ),
@@ -194,7 +194,7 @@ class _ProfileState extends State<Profile> {
             Container(
               alignment: Alignment.centerLeft,
               margin: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: Text("My Information", style: TextStyle(
+              child: const Text("My Information", style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'futura-bold',
                 fontSize: 20,
@@ -207,7 +207,7 @@ class _ProfileState extends State<Profile> {
               margin: const EdgeInsets.fromLTRB(20, 0, 20, 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Text("My child's information", style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'futura-regular',
@@ -228,7 +228,7 @@ class _ProfileState extends State<Profile> {
               margin: const EdgeInsets.fromLTRB(20, 0, 20, 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Text("Payment method", style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'futura-regular',
@@ -249,7 +249,7 @@ class _ProfileState extends State<Profile> {
               margin: const EdgeInsets.fromLTRB(20, 0, 20, 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Text("Password", style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'futura-regular',

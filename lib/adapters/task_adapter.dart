@@ -37,9 +37,9 @@ class _TaskAdapterState extends State<TaskAdapter> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(widget.task.image, width: 50, height: 45,),
+              Image.asset(widget.task.image, width: 40, height: 40,),
               Container(width: 5,),
-              Text(widget.task.title, style: TextStyle(color: HexColor("#707070"), fontSize: 14, fontFamily: 'futura-medium'),),
+              Text(widget.task.title, style: TextStyle(color: isSelected ? Colors.white : HexColor("#707070"), fontSize: 14, fontFamily: 'futura-medium'),),
               Container(width: 3,),
             ],
           ),

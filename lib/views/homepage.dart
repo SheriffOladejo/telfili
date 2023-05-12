@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:telfili/adapters/babysitter_adapter.dart';
 import 'package:telfili/adapters/filter_adapter.dart';
 import 'package:telfili/adapters/schedule_adapter.dart';
@@ -6,6 +7,9 @@ import 'package:telfili/models/babysitter.dart';
 import 'package:telfili/models/filter.dart';
 import 'package:telfili/models/schedule.dart';
 import 'package:telfili/utils/hex_color.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:telfili/utils/methods.dart';
+import 'package:telfili/views/terms_and_condition.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -32,7 +36,12 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
         leading: GestureDetector(
           onTap: () {
-            
+            showMaterialModalBottomSheet(
+              backgroundColor: Colors.transparent,
+              context: context,
+              expand: false,
+              builder: (context) => ContactUs(),
+            );
           },
           child: Image.asset("assets/images/category.png"),
         ),
@@ -269,3 +278,345 @@ class _HomePageState extends State<HomePage> {
   }
 
 }
+
+class ContactUs extends StatefulWidget {
+
+  const ContactUs({Key key}) : super(key: key);
+
+  @override
+  State<ContactUs> createState() => _ContactUsState();
+
+}
+
+class _ContactUsState extends State<ContactUs> {
+
+  bool english = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.transparent,
+      child: Container(
+        height: 600,
+        width: MediaQuery.of(context).size.width,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(topRight: Radius.circular(35), topLeft: Radius.circular(35)),
+          color: Colors.white,
+        ),
+        child: Column(
+          children: [
+            Container(
+              height: 10,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              alignment: Alignment.center,
+              child: Container(
+                width: 80,
+                height: 5,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(3)),
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            Container(height: 50,),
+            InkWell(
+              onTap: () {
+                Navigator.pop(context);
+                showMaterialModalBottomSheet(
+                  backgroundColor: Colors.transparent,
+                  context: context,
+                  expand: false,
+                  builder: (context) => ContactUsForm(),
+                );
+              },
+              child: Container(
+                margin: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Contact us", style: TextStyle(
+                      color: HexColor("#707070"),
+                      fontFamily: 'futura-regular',
+                      fontSize: 14,
+                    ),),
+                    Icon(Icons.chevron_right, color: HexColor("#707070"), size: 18,)
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+              height: 0.5,
+              color: HexColor("#707070"),
+            ),
+            Container(height: 20,),
+            Container(
+              margin: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Language", style: TextStyle(
+                    color: HexColor("#707070"),
+                    fontFamily: 'futura-regular',
+                    fontSize: 14,
+                  ),),
+                  FlutterSwitch(
+                    showOnOff: true,
+                    value: english,
+                    height: 20,
+                    width: 45,
+                    toggleSize: 15,
+                    valueFontSize: 10,
+                    activeText: "EN",
+                    inactiveText: "AR",
+                    inactiveTextColor: Colors.black,
+                    inactiveColor: HexColor("#FFD9F0"),
+                    activeTextFontWeight: FontWeight.normal,
+                    inactiveTextFontWeight: FontWeight.normal,
+                    onToggle: (val) {
+                      setState(() {
+                        english = !english;
+                      });
+                    },
+                  )
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+              height: 0.5,
+              color: HexColor("#707070"),
+            ),
+            Container(height: 20,),
+            InkWell(
+              onTap: () {
+                Navigator.push(context, slideLeft(const TermsAndConditions()));
+              },
+              child: Container(
+                margin: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Terms and Conditions", style: TextStyle(
+                      color: HexColor("#707070"),
+                      fontFamily: 'futura-regular',
+                      fontSize: 14,
+                    ),),
+                    Icon(Icons.chevron_right, color: HexColor("#707070"), size: 18,)
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+              height: 0.5,
+              color: HexColor("#707070"),
+            ),
+            Container(height: 20,),
+          ],
+        ),
+      ),
+    );
+  }
+
+}
+
+class ContactUsForm extends StatefulWidget {
+
+  const ContactUsForm({Key key}) : super(key: key);
+
+  @override
+  State<ContactUsForm> createState() => _ContactUsFormState();
+
+}
+
+class _ContactUsFormState extends State<ContactUsForm> {
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Container(
+        color: Colors.transparent,
+        child: Container(
+          height: 600,
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(topRight: Radius.circular(35), topLeft: Radius.circular(35)),
+            color: Colors.white,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                height: 10,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.center,
+                child: Container(
+                  width: 80,
+                  height: 5,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(3)),
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              Container(height: 20,),
+              Text("Contact us", style: TextStyle(
+                color: HexColor("#707070"),
+                fontSize: 20,
+                fontFamily: 'futura-medium'
+              ),),
+              Container(height: 20,),
+              SizedBox(
+                width: 250,
+                height: 35,
+                child: TextField(
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'futura-regular',
+                    fontSize: 18,
+                  ),
+                  textAlignVertical: TextAlignVertical.bottom,
+                  decoration: InputDecoration(
+                      hintText: "Name",
+                      hintStyle: const TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'futura-regular',
+                        fontSize: 18,
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Colors.grey,
+                        ),
+                        borderRadius: BorderRadius.circular(5),
+                      )
+                  ),
+                ),
+              ),
+              Container(height: 15,),
+              SizedBox(
+                width: 250,
+                height: 35,
+                child: TextField(
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'futura-regular',
+                    fontSize: 18,
+                  ),
+                  textAlignVertical: TextAlignVertical.bottom,
+                  decoration: InputDecoration(
+                      hintText: "Email",
+                      hintStyle: const TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'futura-regular',
+                        fontSize: 18,
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Colors.grey,
+                        ),
+                        borderRadius: BorderRadius.circular(5),
+                      )
+                  ),
+                ),
+              ),
+              Container(height: 15,),
+              SizedBox(
+                width: 250,
+                height: 35,
+                child: TextField(
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'futura-regular',
+                    fontSize: 18,
+                  ),
+                  textAlignVertical: TextAlignVertical.bottom,
+                  decoration: InputDecoration(
+                      hintText: "Subject",
+                      hintStyle: const TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'futura-regular',
+                        fontSize: 18,
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Colors.grey,
+                        ),
+                        borderRadius: BorderRadius.circular(5),
+                      )
+                  ),
+                ),
+              ),
+              Container(height: 15,),
+              SizedBox(
+                width: 250,
+                height: 135,
+                child: TextField(
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'futura-regular',
+                    fontSize: 18,
+                  ),
+                  minLines: 8,
+                  maxLines: 10,
+                  textAlignVertical: TextAlignVertical.bottom,
+                  decoration: InputDecoration(
+                      hintText: "Message",
+                      hintStyle: const TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'futura-regular',
+                        fontSize: 18,
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Colors.grey,
+                        ),
+                        borderRadius: BorderRadius.circular(5),
+                      )
+                  ),
+                ),
+              ),
+              Container(height: 10,),
+              Container(height: 45,),
+              Padding(
+                padding:  const EdgeInsets.fromLTRB(100, 5, 100, 5),
+                child: MaterialButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                  padding: const EdgeInsets.fromLTRB(50, 5, 50, 5),
+                  color: HexColor("#FF66C4"),
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: MediaQuery.of(context).size.width - 20,
+                    child: const Text(
+                      "Send",
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontFamily: 'futura-medium'
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+}
+
+

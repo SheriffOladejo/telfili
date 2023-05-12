@@ -231,7 +231,7 @@ class _SelectTaskState extends State<SelectTask> {
     taskList.add(
         Task(
             image: "assets/images/football.png",
-            title: "Soccer"
+            title: "Play soccer"
         )
     );
     taskList.add(
@@ -243,7 +243,7 @@ class _SelectTaskState extends State<SelectTask> {
     taskList.add(
         Task(
             image: "assets/images/walk.png",
-            title: "Walk"
+            title: "Take a walk"
         )
     );
     taskList.add(
