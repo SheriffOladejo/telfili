@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> init() async {
     await Future.delayed(const Duration(seconds: 4));
-    Navigator.push(context, slideLeft(const Login()));
+    Navigator.pushReplacement(context, slideLeft(const Login()));
   }
 
   @override

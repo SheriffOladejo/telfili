@@ -22,21 +22,6 @@ class _NotificationsState extends State<Notifications> {
         backgroundColor: HexColor("#F0F0F0"),
         elevation: 0,
         automaticallyImplyLeading: false,
-        leading: GestureDetector(
-          onTap: () async {
-
-          },
-          child: Image.asset("assets/images/category.png"),
-        ),
-        actions: [
-          GestureDetector(
-            onTap: () async {
-
-            },
-            child: Image.asset("assets/images/settings box.png"),
-          ),
-          Container(width: 10,),
-        ],
       ),
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
@@ -256,7 +241,9 @@ class _NotificationsState extends State<Notifications> {
           height: 50,
           child: MaterialButton(
             onPressed: () {
-
+              setState(() {
+                value = !value;
+              });
             },
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
