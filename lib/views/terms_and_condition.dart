@@ -22,7 +22,19 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
             margin: const EdgeInsets.fromLTRB(15, 70, 15, 0),
             child: Column(
               children: [
-                Image.asset("assets/images/text logo.png"),
+                Stack(
+                  children: [
+                    Image.asset("assets/images/tefli.png", width: 145, height: 110,),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(width: 18,),
+                        Image.asset("assets/images/li.png", width: 145, height: 110,),
+                      ],
+                    )
+                  ],
+                ),
                 Container(height: 35,),
                 Container(
                   padding: const EdgeInsets.all(5),

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:telfili/utils/hex_color.dart';
 import 'package:telfili/utils/methods.dart';
 
+import 'terms_and_condition.dart';
+
 
 class SignUp extends StatefulWidget {
 
@@ -35,7 +37,19 @@ class _SignUpState extends State<SignUp> {
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
-              Image.asset("assets/images/text logo.png", width: 100, height: 50,),
+              Stack(
+                children: [
+                  Image.asset("assets/images/tefli.png", width: 145, height: 110,),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(width: 18,),
+                      Image.asset("assets/images/li.png", width: 145, height: 110,),
+                    ],
+                  )
+                ],
+              ),
               Container(height: 20,),
               Row(
                 children: [
@@ -469,7 +483,7 @@ class _SignUpState extends State<SignUp> {
               Container(height: 10,),
               MaterialButton(
                 onPressed: () {
-
+                  Navigator.pop(context);
                 },
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -513,7 +527,7 @@ class _SignUpState extends State<SignUp> {
                       children: [
                         GestureDetector(
                           onTap: () async {
-
+                            Navigator.push(context, slideLeft(const TermsAndConditions()));
                           },
                           child: const Text(
                             "terms of use ",
@@ -536,7 +550,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                         GestureDetector(
                           onTap: () async {
-
+                            Navigator.push(context, slideLeft(const TermsAndConditions()));
                           },
                           child: const Text(
                             "terms of use. ",

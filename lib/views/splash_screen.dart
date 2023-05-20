@@ -26,7 +26,19 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/images/text logo.png", width: 150, height: 70,),
+            Stack(
+              children: [
+                Image.asset("assets/images/tefli.png", width: 145, height: 110,),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(width: 18,),
+                    Image.asset("assets/images/li.png", width: 145, height: 110,),
+                  ],
+                )
+              ],
+            ),
             Image.asset("assets/images/baby logo.png", width: 335, height: 350,),
           ],
         ),
